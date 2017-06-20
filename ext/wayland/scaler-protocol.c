@@ -27,8 +27,8 @@
 #include <stdint.h>
 #include "wayland-util.h"
 
-extern const struct wl_interface wl_surface_interface;
 extern const struct wl_interface wl_viewport_interface;
+extern const struct wl_interface wl_surface_interface;
 
 static const struct wl_interface *types[] = {
 	NULL,

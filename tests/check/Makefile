@@ -1528,10 +1528,10 @@ WARNING_CFLAGS =  -Wall -Wdeclaration-after-statement -Wvla -Wpointer-arith -Wmi
 WARNING_CXXFLAGS =  -Wall -Wmissing-declarations -Wredundant-decls -Wwrite-strings -Wformat-nonliteral -Wformat-security -Winit-self -Wmissing-include-dirs -Waddress -Wno-multichar
 WARNING_OBJCFLAGS = 
 WASAPI_LIBS = 
-WAYLAND_CFLAGS = 
+WAYLAND_CFLAGS =  
 WAYLAND_EGL_CFLAGS = 
 WAYLAND_EGL_LIBS = 
-WAYLAND_LIBS = 
+WAYLAND_LIBS = -lwayland-client  
 WEBP_CFLAGS = 
 WEBP_LIBS = 
 WGET = 
@@ -1620,7 +1620,7 @@ target_vendor = unknown
 top_build_prefix = ../../
 top_builddir = ../..
 top_srcdir = ../..
-wayland_scanner = 
+wayland_scanner = /usr/bin/wayland-scanner
 
 # GST_PLUGINS_XYZ_DIR is only set in an uninstalled setup
 AM_TESTS_ENVIRONMENT = CK_DEFAULT_TIMEOUT=20 $(REGISTRY_ENVIRONMENT) \

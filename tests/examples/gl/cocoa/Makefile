@@ -654,10 +654,10 @@ WARNING_CFLAGS =  -Wall -Wdeclaration-after-statement -Wvla -Wpointer-arith -Wmi
 WARNING_CXXFLAGS =  -Wall -Wmissing-declarations -Wredundant-decls -Wwrite-strings -Wformat-nonliteral -Wformat-security -Winit-self -Wmissing-include-dirs -Waddress -Wno-multichar
 WARNING_OBJCFLAGS = 
 WASAPI_LIBS = 
-WAYLAND_CFLAGS = 
+WAYLAND_CFLAGS =  
 WAYLAND_EGL_CFLAGS = 
 WAYLAND_EGL_LIBS = 
-WAYLAND_LIBS = 
+WAYLAND_LIBS = -lwayland-client  
 WEBP_CFLAGS = 
 WEBP_LIBS = 
 WGET = 
@@ -746,7 +746,7 @@ target_vendor = unknown
 top_build_prefix = ../../../../
 top_builddir = ../../../..
 top_srcdir = ../../../..
-wayland_scanner = 
+wayland_scanner = /usr/bin/wayland-scanner
 #cocoa_videooverlay_SOURCES = cocoa-videooverlay.m
 #cocoa_videooverlay_OBJCFLAGS = -Wno-error=unused-command-line-argument \
 #    -I$(top_srcdir)/gst-libs -I$(top_builddir)/gst-libs \

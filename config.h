@@ -641,7 +641,7 @@
 /* #undef HAVE_WASAPI */
 
 /* Define to enable wayland sink (used by wayland ). */
-/* #undef HAVE_WAYLAND */
+#define HAVE_WAYLAND /**/
 
 /* Define to enable WebP (used by webp ). */
 /* #undef HAVE_WEBP */

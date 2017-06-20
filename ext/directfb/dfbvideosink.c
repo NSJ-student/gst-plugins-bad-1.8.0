@@ -231,7 +231,7 @@ gst_dfb_buffer_pool_set_config (GstBufferPool * pool, GstStructure * config)
   s_dsc.pixelformat = pixel_format;
   s_dsc.width = width;
   s_dsc.height = height;
-
+/*
   ret = dfbpool->dfbvideosink->dfb->CreateSurface (dfbpool->dfbvideosink->dfb,
       &s_dsc, &surface);
   if (ret != DFB_OK) {
@@ -239,7 +239,10 @@ gst_dfb_buffer_pool_set_config (GstBufferPool * pool, GstStructure * config)
         gst_dfbvideosink_get_format_name (pixel_format));
     return FALSE;
   }
-
+*/
+  surface = dfbpool->dfbvideosink->ext_surface;
+    GST_DEBUG_OBJECT (pool, "use ext_surface");
+/*
   ret = surface->Lock (surface, DSLF_READ, &data, &pitch);
   if (ret != DFB_OK) {
     GST_WARNING_OBJECT (pool, "failed locking the surface");
@@ -248,7 +251,7 @@ gst_dfb_buffer_pool_set_config (GstBufferPool * pool, GstStructure * config)
   }
   surface->Unlock (surface);
   surface->Release (surface);
-
+*/
   switch (GST_VIDEO_INFO_FORMAT (&info)) {
     case GST_VIDEO_FORMAT_I420:
     case GST_VIDEO_FORMAT_YV12:
@@ -1822,6 +1825,9 @@ gst_dfbvideosink_show_frame (GstBaseSink * bsink, GstBuffer * buf)
 
     /* Center / Clip */
     gst_video_sink_center_rect (src, dst, &result, FALSE);
+    GST_DEBUG_OBJECT (dfbvideosink, "result=(%d,%d,%d,%d)", result.x, result.y, result.w, result.h);
+    GST_DEBUG_OBJECT (dfbvideosink, "src=(%d,%d,%d,%d)", src.x, src.y, src.w, src.h);
+    GST_DEBUG_OBJECT (dfbvideosink, "dst=(%d,%d,%d,%d)", dst.x, dst.y, dst.w, dst.h);
 
     res =
         surface->GetSubSurface (surface, (DFBRectangle *) (void *) &result,
